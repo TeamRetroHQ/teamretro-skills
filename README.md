@@ -6,14 +6,23 @@ Your AI teammates work inside your repos every day. They hit the missing docs, t
 
 **None of these skills require TeamRetro.** The practice works with a markdown log in any repo and any retro process. If your team does use [TeamRetro](https://www.teamretro.com), the agent can additionally file its findings straight into your next retro via the TeamRetro MCP server.
 
-## The skills
+## Two ways to use it
 
-| Skill | What it does | Needs TeamRetro? |
-|---|---|---|
-| [`ai-session-retro`](skills/ai-session-retro/SKILL.md) | At the end of a working session, the agent logs an honest, evidence-cited retro entry: what went well, what caused friction (with a root-cause label and a concrete fix), what it guessed at, and the one fix worth doing first. | No — optional MCP filing |
-| [`ai-retro-brief`](skills/ai-retro-brief/SKILL.md) | Reads the accumulated entries and produces a one-page brief for your team retrospective: recurring friction ranked by frequency × cost, whether past fixes stuck, top 3 recommended actions. | No |
+**Scenario 1 — no TeamRetro needed (the full practice, free):**
 
-Planned: skills that work directly with the TeamRetro MCP server (filing parked items and actions, prepping retros from team activity). Watch this repo.
+| Skill | What it does |
+|---|---|
+| [`ai-session-retro`](skills/ai-session-retro/SKILL.md) | At the end of a working session, the agent logs an honest, evidence-cited retro entry: what went well, what caused friction (with a root-cause label and a concrete fix), what it guessed at, and the one fix worth doing first. |
+| [`ai-retro-brief`](skills/ai-retro-brief/SKILL.md) | Reads the accumulated entries and prepares a one-page summary you bring to your retro however you run it: recurring friction ranked by frequency × cost, whether past fixes stuck, top 3 recommended actions. |
+
+**Scenario 2 — with TeamRetro (the AI posts its reflections itself):**
+
+| Skill | What it does |
+|---|---|
+| [`ai-session-retro`](skills/ai-session-retro/SKILL.md) | Same as above — the logging habit is identical. |
+| [`teamretro-post-recommendations`](skills/teamretro-post-recommendations/SKILL.md) | Prepares the AI's recommendations from the log and, with your consent, posts them into TeamRetro via its MCP server — parked items for your next retro, actions when owner-named, or ideas contributed straight onto a running retro board. `[AI retro]` attribution, consent per write, idempotent. |
+
+Planned: TeamRetro MCP skills for prepping retros from recent team activity and running a lightweight standup. Watch this repo.
 
 ## Install
 
