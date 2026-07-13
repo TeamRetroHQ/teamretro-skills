@@ -26,16 +26,27 @@ Planned: TeamRetro MCP skills for prepping retros from recent team activity and 
 
 ## Install
 
-**Claude Code (project):** copy a skill folder into your repo's `.claude/skills/` directory:
+**One command, any agent** (Claude Code, Cursor, Codex, Copilot, Amp, Cline, and more) — from your repo root:
+
+```bash
+npx skills add TeamRetroHQ/teamretro-skills
+```
+
+**Claude Code plugin** — installs the skill set and keeps it updated:
+
+```
+/plugin marketplace add TeamRetroHQ/teamretro-skills
+/plugin install teamretro-skills@teamretro
+```
+
+**Manual copy** — a skill is just a folder; copy it into your repo's `.claude/skills/` (or `~/.claude/skills/` for all projects):
 
 ```bash
 mkdir -p .claude/skills
 cp -r skills/ai-session-retro skills/ai-retro-brief .claude/skills/
 ```
 
-**Claude Code (personal, all projects):** copy into `~/.claude/skills/` instead.
-
-**Other agents (Cursor, Copilot, Codex, …):** use the [prompt pack](prompt-pack/) — the same practice as a plain prompt + template, no skill support required.
+**No skill support at all?** Use the [prompt pack](prompt-pack/) — the same practice as a plain prompt + template.
 
 ## How it works
 
