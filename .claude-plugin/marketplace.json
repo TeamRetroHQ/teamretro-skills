@@ -6,7 +6,7 @@
     {
       "name": "teamretro-skills",
       "source": "./",
-      "description": "AI session retrospectives — your AI teammates gather reflections and bring them to your retro",
+      "description": "AI session retrospectives — your AI agents share their feedback and bring it to your retro",
       "version": "1.3.0",
       "author": { "name": "GroupMap Pty Ltd", "url": "https://www.teamretro.com" },
       "homepage": "https://www.teamretro.com",

@@ -18,7 +18,7 @@
     {
       "id": 2,
       "eval_name": "contribute-ideas-to-chosen-retro",
-      "prompt": "Add the AI's reflections from the 2026-07-11 billing-webhooks entry to the Platform team's retro that's running — put both friction points on the board as ideas.",
+      "prompt": "Add the AI's feedback from the 2026-07-11 billing-webhooks entry to the Platform team's retro that's running — put both friction points on the board as ideas.",
       "expected_output": "Resolves the team via list_teams, lists candidate retros via list_retrospectives (teamIds, sort -date) and has the user pick the target retro rather than guessing. Shows the exact '[AI retro]'-prefixed idea text for each selected finding and confirms before writing. Calls create_retrospective_idea per confirmed idea; if the response createdAs is 'parkedItem' (no retro open) it says so honestly; if multiple retros are open it disambiguates with the user-chosen retrospectiveId. Writes 'Posted: idea <id/url> (<today>)' refs back and commits. Never creates or modifies a retrospective.",
       "files": ["fixtures/entries/docs/ai-retros/entries/2026-07-11-refactor-billing-webhooks.md"]
     },

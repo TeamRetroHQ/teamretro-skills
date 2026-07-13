@@ -1,13 +1,13 @@
 ---
 name: teamretro-post-recommendations
-description: Use when the user wants the AI's retro recommendations prepared and posted into TeamRetro — "post the AI's recommendations to TeamRetro", "prep our TeamRetro retro with the AI's findings", "park the top fixes for next retro", "add the AI's reflections to Friday's retro". Do NOT use for general TeamRetro administration (creating retros, health checks, teams, or managing existing items), and not for a tool-agnostic summary the user brings to their retro themselves — that's ai-retro-brief.
+description: Use when the user wants the AI's retro recommendations prepared and posted into TeamRetro — "post the AI's recommendations to TeamRetro", "prep our TeamRetro retro with the AI's findings", "park the top fixes for next retro", "add the AI's feedback to Friday's retro". Do NOT use for general TeamRetro administration (creating retros, health checks, teams, or managing existing items), and not for a tool-agnostic summary the user brings to their retro themselves — that's ai-retro-brief.
 metadata:
   version: "0.2"
 ---
 
 # Post AI Recommendations to TeamRetro
 
-The TeamRetro-native counterpart of `ai-retro-brief`. Where that skill prepares a summary the user brings to their retro however they run it, this one prepares the AI's recommendations **and posts them into TeamRetro** — so the AI's reflections land on the board next to everyone else's.
+The TeamRetro-native counterpart of `ai-retro-brief`. Where that skill prepares a summary the user brings to their retro however they run it, this one prepares the AI's recommendations **and posts them into TeamRetro** — so the AI's ideas land on the board next to everyone else's.
 
 This is the AI-participates-in-the-retro flow. The AI's voice stays visible: every posted item is prefixed `[AI retro]` so a human reading the board knows a teammate's agent raised it, not a person. The human decides what gets posted and where; the AI never posts on its own.
 
