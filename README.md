@@ -2,7 +2,7 @@
 
 Skills for teams whose AI agents do real work — and should have a voice in how the team improves.
 
-Your AI teammates work inside your repos every day. They hit the missing docs, the stale guides, the tech debt, the unclear briefs — and when the session ends, all of that evaporates. These skills close the loop: the agent gathers its own reflections at the end of a session, and brings them to your team's retrospective.
+Your AI agents work inside your repos every day. They hit the missing docs, the stale guides, the tech debt, the unclear briefs — and when the session ends, all of that evaporates. These skills close the loop: the agent captures its own feedback at the end of a session, and brings it to your team's retrospective.
 
 **None of these skills require TeamRetro.** The practice works with a markdown log in any repo and any retro process. If your team does use [TeamRetro](https://www.teamretro.com), the agent can additionally file its findings straight into your next retro via the TeamRetro MCP server.
 
@@ -15,7 +15,7 @@ Your AI teammates work inside your repos every day. They hit the missing docs, t
 | [`ai-session-retro`](skills/ai-session-retro/SKILL.md) | At the end of a working session, the agent logs an honest, evidence-cited retro entry: what went well, what caused friction (with a root-cause label and a concrete fix), what it guessed at, and the one fix worth doing first. |
 | [`ai-retro-brief`](skills/ai-retro-brief/SKILL.md) | Reads the accumulated entries and prepares a one-page summary you bring to your retro however you run it: recurring friction ranked by frequency × cost, whether past fixes stuck, top 3 recommended actions. |
 
-**Scenario 2 — with TeamRetro (the AI posts its reflections itself):**
+**Scenario 2 — with TeamRetro (the AI posts its recommendations itself):**
 
 | Skill | What it does |
 |---|---|
