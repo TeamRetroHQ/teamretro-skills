@@ -1,7 +1,8 @@
 # Changelog
 
-## Unreleased
+## v1.3 (2026-07-13)
 
+- Marketplace metadata for public listing: `displayName`, `homepage`, `repository`, `license` (MIT), `keywords`, and marketplace `category`/`tags` (productivity; retrospective, retro, agile, teamretro, session-review, continuous-improvement).
 - New skill `teamretro-post-recommendations` v0.2 — the TeamRetro-native counterpart of `ai-retro-brief`. Prepares the AI's recommendations from the retro log (same synthesis rules as `ai-retro-brief`, saved and committed as a dated brief) and, with per-write consent, posts them into TeamRetro via its MCP server: **parked items** (default), **actions** (when owner-named), or retrospective **ideas** contributed onto a running board (the "AI participates" flow). `[AI retro]` attribution on every posted item, idempotent `Posted:` ref writeback + commit so re-runs don't double-post. Read/list tools plus `create_parked_item` / `create_action` / `create_retrospective_idea` only — never creates or modifies retrospectives, health checks, or teams, and never required for the base practice (that's `ai-retro-brief`). Eval suite covers prepare-and-post with consent + writeback, idempotent skip, contributing ideas to a chosen retro, and the no-MCP-connection graceful fallback. (Supersedes the unreleased `teamretro-file-findings` v0.1, which only filed pre-existing findings.)
 
 ## v1.2 (2026-07-13) — pre-release
