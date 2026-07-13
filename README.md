@@ -12,8 +12,9 @@ Your AI teammates work inside your repos every day. They hit the missing docs, t
 |---|---|---|
 | [`ai-session-retro`](skills/ai-session-retro/SKILL.md) | At the end of a working session, the agent logs an honest, evidence-cited retro entry: what went well, what caused friction (with a root-cause label and a concrete fix), what it guessed at, and the one fix worth doing first. | No — optional MCP filing |
 | [`ai-retro-brief`](skills/ai-retro-brief/SKILL.md) | Reads the accumulated entries and produces a one-page brief for your team retrospective: recurring friction ranked by frequency × cost, whether past fixes stuck, top 3 recommended actions. | No |
+| [`teamretro-file-findings`](skills/teamretro-file-findings/SKILL.md) | Files human-checked findings from the retro log into TeamRetro via its MCP server: a "Do this first" fix as a parked item or action, or selected findings as the AI's own ideas contributed to a retro the user picks. Consent per write, `[AI retro]` attribution, idempotent Filed-ref writeback. | Yes — MCP |
 
-Planned: skills that work directly with the TeamRetro MCP server (filing parked items and actions, prepping retros from team activity). Watch this repo.
+Planned: TeamRetro MCP skills for prepping retros from recent team activity and running a lightweight standup. Watch this repo.
 
 ## Install
 

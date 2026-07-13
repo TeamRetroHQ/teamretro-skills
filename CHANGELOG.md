@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- New skill `teamretro-file-findings` v0.1 — the full-featured TeamRetro companion to the built-in one-off filing step in `ai-session-retro`. Carries human-sanity-checked findings from committed entries/briefs into TeamRetro via its MCP server. Two modes: file a "Do this first" fix (or a brief's recommended actions) to the backlog as a **parked item** (default) or an **action** (when it has a clear owner); or contribute selected findings as retrospective **ideas** into a retro the user picks (the "AI participates" flow). Consent per write, `[AI retro]` attribution on every filed item, idempotent `Filed:` ref writeback + commit so re-runs don't double-file. Read/list tools plus `create_parked_item` / `create_action` / `create_retrospective_idea` only — never creates or modifies retrospectives, health checks, or teams, and never requires TeamRetro for the base practice. Eval suite covers filing with consent + writeback, idempotent skip, contributing ideas to a chosen retro, and the no-MCP-connection graceful fallback.
+
 ## v1.2 (2026-07-13) — pre-release
 
 Reworked from the v1.1 Cowork prototype for git-native, multi-repo use:
