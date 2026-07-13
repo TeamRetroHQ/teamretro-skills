@@ -3,9 +3,12 @@ name: teamretro-post-recommendations
 description: Use when the user wants the AI's retro recommendations prepared and posted into TeamRetro — "post the AI's recommendations to TeamRetro", "prep our TeamRetro retro with the AI's findings", "park the top fixes for next retro", "add the AI's feedback to Friday's retro". Do NOT use for general TeamRetro administration (creating retros, health checks, teams, or managing existing items), and not for a tool-agnostic summary the user brings to their retro themselves — that's ai-retro-brief.
 metadata:
   version: "0.2"
+  status: beta
 ---
 
 # Post AI Recommendations to TeamRetro
+
+> **Beta.** This skill depends on the TeamRetro MCP server and is still being hardened. The account-free practice (`ai-session-retro` + `ai-retro-brief`) is the stable path; use this to post into TeamRetro and report anything that breaks.
 
 The TeamRetro-native counterpart of `ai-retro-brief`. Where that skill prepares a summary the user brings to their retro however they run it, this one prepares the AI's recommendations **and posts them into TeamRetro** — so the AI's ideas land on the board next to everyone else's.
 
@@ -32,8 +35,8 @@ Save the analysis as a brief (`docs/ai-retros/briefs/brief-YYYY-MM-DD.md`, per `
 Show the user the prepared recommendations, then ask where they should go if it isn't obvious:
 
 - **Parked item** (`create_parked_item`) — the default. A parked item is a discussion topic queued for the team's next retro with no commitment to act yet, which is exactly what a recommendation is. Needs a team: resolve via `list_teams` when the user names one; confirm the matched team (name + `url`) before writing.
-- **Action** (`create_action`) — only when a recommendation has a clear owner. Actions imply commitment; don't manufacture one. Set `assignedTo` only if the user names the owner's email; `priority`/`due` only if asked.
-- **Retrospective ideas** (`create_retrospective_idea`) — when the user wants the recommendations contributed into a specific retro. Resolve the target with the user, don't guess: `list_teams` → `list_retrospectives` (filter `teamIds`, sort `-date`) → the user picks. Optionally `get_retrospective` with `expand=groups` to place ideas in a chosen column via `topicId` (otherwise they land in the first column). Real tool behavior to relay honestly:
+- **Action** (`create_action`) — only when a recommendation has a clear owner. Actions imply commitment; don't manufacture one. Needs the team (`team.id`, resolved via `list_teams`) and a title. Set `assignedTo` only if the user names the owner's email; `due` only if asked. `priority` isn't set at creation — it needs a follow-up `update_action`, so only do it if the user asks.
+- **Retrospective ideas** (`create_retrospective_idea`) — when the user wants the recommendations contributed into a specific retro. Resolve the target with the user, don't guess: `list_teams` → `list_retrospectives` (filter `teamIds`, sort `-date`) → the user picks. To place the idea in a specific column, resolve that column's `topicId` via `get_retrospective` and pass it (omitted, the idea lands in the first column). Real tool behavior to relay honestly:
   - If a retro is **open**, the idea lands on the live board; if none is open, it becomes a parked item — the response's `createdAs` field (`"idea"` vs `"parkedItem"`) says which. Report it: "no retro was open, so it was parked for next time."
   - More than one open retro → 409 with candidates; pass the user-chosen `retrospectiveId` only to disambiguate.
   - Idea creation needs a **user** token, not an API key; on that rejection, report it and offer parked items instead.
