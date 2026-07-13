@@ -17,4 +17,4 @@
 ## Do this first
 Add a "search objective" field to the ticket template so the target metric is stated before work starts. ~10 minutes — removes the guess that cost a rework this session.
 
-Filed: parked-item aB3dEfGh1jKlMnOpQrStU (2026-07-09)
+Posted: parked-item aB3dEfGh1jKlMnOpQrStU (2026-07-09)
