@@ -1,0 +1,19 @@
+{
+  "skill_name": "ai-retro-brief",
+  "evals": [
+    {
+      "id": 0,
+      "eval_name": "synthesize-brief-from-entries",
+      "prompt": "We've been logging AI session retros for a few weeks now (docs/ai-retros/entries/ in this repo). Can you synthesize them into a one-page brief we can bring into our team retrospective on Friday?",
+      "expected_output": "Produces docs/ai-retros/briefs/brief-<today>.md with: recurring-friction themes ranked by frequency x cost (ambiguous-instruction should rank #1 at 4 of 6 sessions), root-cause distribution grouped into briefing/documentation/codebase/tooling/agent with briefing dominating, adoption tracking (time-window fix adopted by 2026-07-09; live-search verification not verifiable from the log), top 3 evidence-tied actions citing dated entries, and a trend paragraph honest about the 6-entry sample. Stamped ai-retro-brief v1.2.",
+      "files": ["fixtures/six-entries/docs/ai-retros/entries/"]
+    },
+    {
+      "id": 1,
+      "eval_name": "too-few-entries-guard",
+      "prompt": "Synthesize our AI retro log (docs/ai-retros/entries/) into a brief for tomorrow's retrospective.",
+      "expected_output": "With only 2 entries present, states that fewer than 3 entries exist, gives a light summary only, and makes NO pattern or trend claims. Does not fabricate recurrence.",
+      "files": ["fixtures/two-entries/docs/ai-retros/entries/2026-07-06-support-ticket-theme-analysis.md", "fixtures/two-entries/docs/ai-retros/entries/2026-07-09-onboarding-email-sequence.md"]
+    }
+  ]
+}

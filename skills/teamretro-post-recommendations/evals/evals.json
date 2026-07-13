@@ -1,0 +1,33 @@
+{
+  "skill_name": "teamretro-post-recommendations",
+  "evals": [
+    {
+      "id": 0,
+      "eval_name": "prepare-and-post-parked-items",
+      "prompt": "Prepare the AI's recommendations from our retro log (docs/ai-retros/entries/) and post them to TeamRetro for the Platform team so they come up at our next retro.",
+      "expected_output": "Synthesizes recommendations from the entries per ai-retro-brief's rules, saves and commits a dated brief stamped teamretro-post-recommendations v0.2, resolves the Platform team via list_teams and confirms the match. Shows the exact '[AI retro]'-prefixed text of each item with source dates and asks for explicit confirmation before any write. Only after consent calls create_parked_item once per item (default — no named owners). Writes 'Posted: parked-item <id/url> (<today>)' refs back under each recommendation in the brief and commits. No retrospective/health-check/team creation.",
+      "files": ["fixtures/entries/docs/ai-retros/entries/2026-07-08-migrate-search-index.md", "fixtures/entries/docs/ai-retros/entries/2026-07-11-refactor-billing-webhooks.md"]
+    },
+    {
+      "id": 1,
+      "eval_name": "skip-already-posted-idempotency",
+      "prompt": "Post the top fix from the 2026-07-08 search-index retro entry into TeamRetro for the Platform team.",
+      "expected_output": "Detects the existing 'Posted: parked-item aB3dEfGh1jKlMnOpQrStU (2026-07-09)' ref in 2026-07-08-migrate-search-index.md, reports that this recommendation was already posted, and does NOT call any create tool. No double-posting, no new Posted ref, no commit.",
+      "files": ["fixtures/entries/docs/ai-retros/entries/2026-07-08-migrate-search-index.md"]
+    },
+    {
+      "id": 2,
+      "eval_name": "contribute-ideas-to-chosen-retro",
+      "prompt": "Add the AI's feedback from the 2026-07-11 billing-webhooks entry to the Platform team's retro that's running — put both friction points on the board as ideas.",
+      "expected_output": "Resolves the team via list_teams, lists candidate retros via list_retrospectives (teamIds, sort -date) and has the user pick the target retro rather than guessing. Shows the exact '[AI retro]'-prefixed idea text for each selected finding and confirms before writing. Calls create_retrospective_idea per confirmed idea; if the response createdAs is 'parkedItem' (no retro open) it says so honestly; if multiple retros are open it disambiguates with the user-chosen retrospectiveId. Writes 'Posted: idea <id/url> (<today>)' refs back and commits. Never creates or modifies a retrospective.",
+      "files": ["fixtures/entries/docs/ai-retros/entries/2026-07-11-refactor-billing-webhooks.md"]
+    },
+    {
+      "id": 3,
+      "eval_name": "negative-no-mcp-connection",
+      "prompt": "Post the AI's recommendations from our retro log into TeamRetro.",
+      "expected_output": "With no TeamRetro MCP tools available in the session, states plainly that it can't post anything, points to ai-retro-brief as the tool-agnostic alternative, and does NOT fabricate a posting (no invented item ID, no 'Posted:' writeback, no commit). Does not claim success.",
+      "files": ["fixtures/entries/docs/ai-retros/entries/2026-07-11-refactor-billing-webhooks.md"]
+    }
+  ]
+}
