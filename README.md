@@ -22,7 +22,7 @@ Your AI agents work inside your repos every day. They hit the missing docs, the 
 | [`ai-session-retro`](skills/ai-session-retro/SKILL.md) | Same as above — the logging habit is identical. |
 | [`teamretro-post-recommendations`](skills/teamretro-post-recommendations/SKILL.md) **· Beta** | Prepares the AI's recommendations from the log and, with your consent, posts them into TeamRetro via its MCP server — parked items for your next retro, actions when owner-named, or ideas contributed straight onto a running retro board. `[AI retro]` attribution, consent per write, idempotent. |
 
-> **Beta:** `teamretro-post-recommendations` depends on the TeamRetro MCP server and is still being hardened. Scenario 1 is the stable, fully-supported practice; try Scenario 2 and tell us what breaks via [issues](https://github.com/TeamRetroHQ/teamretro-skills/issues).
+> **Beta:** `teamretro-post-recommendations` depends on the TeamRetro MCP server and is still being hardened. Scenario 1 is the stable, fully-supported practice; try Scenario 2 and tell us what breaks at [feedback.teamretro.com](https://feedback.teamretro.com).
 
 Planned: TeamRetro MCP skills for prepping retros from recent team activity and running a lightweight standup. Watch this repo.
 
@@ -65,7 +65,7 @@ See [examples/](examples/) for a sample entry and brief.
 - **`ai-session-retro`, `ai-retro-brief`** — v1.2, the stable launch set. Account-free, no TeamRetro dependency. Eval definitions are in `skills/*/evals/`; the v1.2 eval run is in progress.
 - **`teamretro-post-recommendations`** — v0.2, **beta**. Its TeamRetro MCP tool contract is verified against the API (`create_parked_item`, `create_action`, `create_retrospective_idea`, `list_teams`, `list_retrospectives`, `get_retrospective` all ship and are un-gated), but the end-to-end flow is still being hardened against staging.
 
-Pilot feedback welcome via [issues](https://github.com/TeamRetroHQ/teamretro-skills/issues).
+Feedback and ideas welcome at [feedback.teamretro.com](https://feedback.teamretro.com).
 
 ## License
 

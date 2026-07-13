@@ -4,7 +4,7 @@ Thanks for your interest in improving these skills. Issues and pull requests are
 
 ## Ways to contribute
 
-- **Report friction:** if a skill produced a bad entry, a vague fix, or missed something obvious, open an issue with the (redacted) output and what you expected. This is the most valuable feedback we can get.
+- **Report friction:** if a skill produced a bad entry, a vague fix, or missed something obvious, tell us at [feedback.teamretro.com](https://feedback.teamretro.com) (or open a GitHub issue) with the (redacted) output and what you expected. This is the most valuable feedback we can get.
 - **Improve a skill:** PRs to `skills/*/SKILL.md` are welcome. Keep the core rules intact: evidence-cited findings only, no finding without a proposed fix, the ten root-cause labels stay unbranded and fixed.
 - **Add prompt-pack variants:** adaptations for other agents belong in `prompt-pack/`.
 
