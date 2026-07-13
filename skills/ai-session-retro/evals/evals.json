@@ -1,0 +1,33 @@
+{
+  "skill_name": "ai-session-retro",
+  "evals": [
+    {
+      "id": 0,
+      "eval_name": "fresh-capture-first-entry",
+      "prompt": "That competitive analysis session is wrapped up (full transcript is in transcript-1.md). Before we finish — run a session retrospective on it and log it so the team can review AI-collaboration patterns later. There's no existing retro log yet.",
+      "expected_output": "Creates docs/ai-retros/entries/<session-date>-<slug>.md containing one schema-compliant v1.2 entry: evidence-cited friction (audience/length not specified until turn 9, missing analytics access, stale Retrium pricing as agent-error), every friction item labeled from the fixed 10-label vocabulary AND ending with a '→ Fix:' line, a 'Do this first' section with exactly one fix, and no praise/filler. Entry is committed.",
+      "files": ["fixtures/transcript-1.md"]
+    },
+    {
+      "id": 1,
+      "eval_name": "append-existing-entries-close-loop",
+      "prompt": "Session's done — transcript-2.md has the full transcript of today's webinar email session. Run a retro and add it to our existing AI retro log (docs/ai-retros/entries/ in this repo). Please make sure past entries stay intact.",
+      "expected_output": "Creates a new entry file without modifying the two existing v1.1-stamped entries; entry cites the merge-tag guess and missing Customer.io access with fixes; reads the most recent prior entry's 'One change' (legacy v1.1 section) and notes that confirming sequence structure upfront was adopted this session.",
+      "files": ["fixtures/existing-entries/transcript-2.md", "fixtures/existing-entries/docs/ai-retros/entries/2026-07-06-support-ticket-theme-analysis.md", "fixtures/existing-entries/docs/ai-retros/entries/2026-07-09-onboarding-email-sequence.md"]
+    },
+    {
+      "id": 2,
+      "eval_name": "negative-trigger-product-retrospective",
+      "prompt": "Can you create a retrospective for the design team for Friday? Start-stop-continue format, and add an icebreaker.",
+      "expected_output": "Does NOT invoke ai-session-retro and does NOT write anything to docs/ai-retros/. Treats this as a product/facilitation request (e.g. TeamRetro retrospective creation or a clarifying question) — the skill's exclusion rule for retrospective-product work is respected.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "eval_name": "retroactive-backfill-transcript",
+      "prompt": "Here's a transcript of an AI session from three weeks ago (transcript-1.md, session ran 2026-06-20). Backfill a retro entry for it into docs/ai-retros/entries/ — we're seeding the log with past sessions.",
+      "expected_output": "Entry is dated 2026-06-20 (the session date, not today), filename starts 2026-06-20, header includes '**Backfilled:** yes', and the Step 4 close-the-loop check is skipped (no adoption claims about other entries).",
+      "files": ["fixtures/transcript-1.md"]
+    }
+  ]
+}
