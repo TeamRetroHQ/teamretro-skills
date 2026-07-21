@@ -17,9 +17,9 @@ Thanks for your interest in improving these skills. Issues and pull requests are
 
 ## Process
 
-1. Fork (or branch, for maintainers) off `master`.
+1. Fork (or branch, for maintainers) off `main`.
 2. Make the change, including eval and CHANGELOG updates.
-3. Open a PR — small and focused beats broad. Maintainers review and merge; `master` only takes changes via PR.
+3. Open a PR — small and focused beats broad. Maintainers review and merge; `main` only takes changes via PR.
 
 ## Security
 
