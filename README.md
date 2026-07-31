@@ -62,7 +62,7 @@ See [examples/](examples/) for a sample entry and brief.
 
 ## Status
 
-- **`ai-session-retro`, `ai-retro-brief`** — v1.2, the stable launch set. Account-free, no TeamRetro dependency. Eval definitions are in `skills/*/evals/`; the v1.2 eval run is in progress.
+- **`ai-session-retro`, `ai-retro-brief`** — v1.2, the stable launch set. Account-free, no TeamRetro dependency. Eval definitions are in `skills/*/evals/`.
 - **`teamretro-post-recommendations`** — v0.2, **beta**. Its TeamRetro MCP tool contract is verified against the API (`create_parked_item`, `create_action`, `create_retrospective_idea`, `list_teams`, `list_retrospectives`, `get_retrospective` all ship and are un-gated), but the end-to-end flow is still being hardened against staging.
 
 Feedback and ideas welcome at [feedback.teamretro.com](https://feedback.teamretro.com).
