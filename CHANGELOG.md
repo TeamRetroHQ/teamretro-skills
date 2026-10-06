@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- `teamretro-post-recommendations` v0.3 — fix double-posting: a fix already filed by `ai-session-retro` (recorded in the entry as `Filed: <ref>`) is now skipped, the same as one carrying a `Posted: <ref>`. Before, only `Posted:` refs were checked, so a filed fix could be posted to TeamRetro a second time. Ref write-back is now explicitly append-only (never edits an entry's body). New eval covers an entry that already carries a `Filed:` ref.
+- `ai-session-retro` v2.2 — the log rule "never edit or delete existing entries" contradicted the skill's own `Filed:` write-back. Reworded: never delete an entry or edit its body; appending a `Filed:` or `Posted:` ref line, and corrections the user asks for, are the only allowed edits.
+
 ## v1.3 (2026-07-13)
 
 - Marketplace metadata for public listing: `displayName`, `homepage`, `repository`, `license` (MIT), `keywords`, and marketplace `category`/`tags` (productivity; retrospective, retro, agile, teamretro, session-review, continuous-improvement).

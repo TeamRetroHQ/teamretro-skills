@@ -2,7 +2,7 @@
 name: teamretro-post-recommendations
 description: Use when the user wants the AI's retro recommendations prepared and posted into TeamRetro — "post the AI's recommendations to TeamRetro", "prep our TeamRetro retro with the AI's findings", "park the top fixes for next retro", "add the AI's feedback to Friday's retro". Do NOT use for general TeamRetro administration (creating retros, health checks, teams, or managing existing items), and not for a tool-agnostic summary the user brings to their retro themselves — that's ai-retro-brief.
 metadata:
-  version: "0.2"
+  version: "0.3"
   status: beta
 ---
 
@@ -26,9 +26,14 @@ Never fabricate a posting (no invented IDs, no "posted!" without a real tool res
 
 Synthesize recommendations from the AI session retro log exactly as `ai-retro-brief` does — read `docs/ai-retros/entries/` (fewer than 3 entries: say so, recommend logging more sessions first, and only proceed if the user insists), rank recurring friction by frequency × cost, and derive the top recommended actions, each tied to specific dated entries. Follow that skill's rules: evidence-cited, unsoftened, fixed vocabulary as-is.
 
-Save the analysis as a brief (`docs/ai-retros/briefs/brief-YYYY-MM-DD.md`, per `ai-retro-brief`'s template, stamped `teamretro-post-recommendations v0.2`) and commit it — the brief is the record of what was recommended; the postings reference it. If the user points at an existing committed brief or entry instead, use its recommendations ("Top 3 recommended actions" / "Do this first") rather than re-deriving.
+Save the analysis as a brief (`docs/ai-retros/briefs/brief-YYYY-MM-DD.md`, per `ai-retro-brief`'s template, stamped `teamretro-post-recommendations v0.3`) and commit it — the brief is the record of what was recommended; the postings reference it. If the user points at an existing committed brief or entry instead, use its recommendations ("Top 3 recommended actions" / "Do this first") rather than re-deriving.
 
-**Idempotency — skip already-posted recommendations.** Before proposing anything, scan the source brief/entry for existing `Posted:` refs (see Step 4). Skip those and say so. If everything is already posted, stop.
+**Idempotency — skip already-posted recommendations.** Before proposing anything, scan the source brief/entry, and every entry a recommendation is derived from, for two kinds of ref line:
+
+- `Posted: <ref>` — written by this skill (see Step 4).
+- `Filed: <ref>` — written by `ai-session-retro` when the user had it file that entry's "Do this first" fix into TeamRetro.
+
+Treat both as already posted. Skip any recommendation that carries either ref, or that is the same fix as an entry's "Do this first" when that entry carries a `Filed:` ref, and tell the user which ones you skipped and why. If everything is already posted, stop.
 
 ## Step 2 — Choose the destination with the user
 
@@ -53,7 +58,7 @@ Never auto-post. Show the user the exact batch — full text of every item, item
 
 ## Step 4 — Record the postings and commit
 
-After each successful write, record the returned identifier under the recommendation in the source brief/entry:
+After each successful write, append the returned identifier as a new line under the recommendation in the source brief/entry. Do not change any other text: in an entry, appending this ref line is the only edit allowed (see `ai-session-retro`'s log rules).
 
 ```
 Posted: <item type> <id or url> (YYYY-MM-DD)
@@ -66,6 +71,6 @@ Note when an intended idea landed as a parked item (`createdAs`), e.g. `Posted: 
 - Requires an authenticated TeamRetro MCP connection; if absent, point to `ai-retro-brief` and stop. The base practice never requires TeamRetro.
 - Consent per write: show the exact text, target, and item type; get explicit confirmation before each batch. Never auto-post.
 - Post only recommendations the user has just reviewed, or from a committed brief/entry — never unreviewed drafts.
-- Idempotency: skip recommendations already carrying a `Posted:` ref; write refs back and commit after posting.
+- Idempotency: skip recommendations already carrying a `Posted:` or `Filed:` ref; append refs and commit after posting. Never edit an entry's body — appending the ref line is the only change.
 - Never create retrospectives, health checks, or teams. Never modify or delete anything in TeamRetro. Parked items, actions, and ideas only — forward writes only.
 - Attribution: every posted title is prefixed `[AI retro]` — the agent's voice is visible, never disguised as a human's.
